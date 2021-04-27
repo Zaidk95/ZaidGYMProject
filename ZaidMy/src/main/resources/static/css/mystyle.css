@@ -1,0 +1,198 @@
+.clearfix a:hover {
+  border-radius: 10px;
+  margin: 5px 15px;
+  background-color: #f39f86;
+background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+  color: burlywood;
+  font-weight: 500;
+  transition: all 1s;
+}
+.clearfix ul {
+  font-size: 18px;
+}
+.nameS {
+  position: absolute;
+  left: 2px;
+  top: 170px;
+  background-color: #fc5296;
+background-image: linear-gradient(315deg, #fc5296 0%, #f67062 74%); 
+  padding: 15px;
+  border-radius: 12px;
+}
+#sname{
+    color:greenyellow;
+    font-size: 55px; font-family:fantasy;
+}
+.nameS:hover{
+    margin: 10px;
+    background-color: #c78957;
+    background-image: linear-gradient(31deg, #d6b629 0%, #f67062 74%); 
+    transition: all 1s;
+}
+.right_bt a:hover{
+    border-radius: 15px;
+    background-color: #756213;
+    background-image: linear-gradient(315deg, #756213 0%, #000000 74%);
+    font-size: 16px;
+    transition: all .9s;
+
+}
+table, th, td {
+    padding: 15px;
+    border: 2px solid black;
+    margin-bottom: 4%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 30px;
+}
+thead tr{
+    padding: 20px;
+    font-size: 40px;
+    background-color: #f5d020;
+    background-image: linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+    border: 2px solid white;
+    color: gold;
+    font-weight: 900;
+}
+tbody td:hover{
+    padding: 20px;
+    font-size: 35px;
+    background-color: #fbb034;
+    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+    color:midnightblue;
+    font-weight: 900;
+}
+.line{
+    position:absolute;
+    right: 60px;
+}
+.bt_main{
+	background-color: #772f1a;
+background-image: linear-gradient(315deg, #772f1a 0%, #f2a65a 74%);
+	position:absolute;
+	right: 20%;
+	font-size: 18px;
+}
+#lef{
+    position: absolute;
+    right: 280px;
+}
+.menu{
+    position: absolute;
+    right: -170px;
+}
+.logo{
+    position: absolute;
+    left: -40px;
+}
+.rightr{
+  margin-right: 50px;
+  margin-top: 30px;
+}
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 23px;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0cf;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #008fb3;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+@import url("https://fonts.googleapis.com/css?family=Rubik:500");
+.button1 {
+  padding: 16px 42px;
+  box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.5);
+  line-height: 1.25;
+  background: #FC6E51;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  transition: background-color 0.6s ease;
+  overflow: hidden;
+  left: 42%;
+  margin-bottom: 3%;
+}
+.button1:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  transform-style: flat;
+  transform: translate3d(-50%, -50%, 0);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100%;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.button1:focus, .button1:hover {
+  background: #fb512e;
+  color:cornsilk;
+  font-weight: 900;
+  transition: all .5s;
+}
+.button1:active:after {
+  width: 200px;
+  height: 200px;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  text-align: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

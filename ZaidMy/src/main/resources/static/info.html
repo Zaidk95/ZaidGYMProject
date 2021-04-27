@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>My Account</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icons -->
+      <link rel="icon" href="images/fevicon/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="css/style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="css/responsive.css" />
+      <!-- colors css -->
+      <link rel="stylesheet" href="css/colors.css" />
+      <!-- wow animation css -->
+      <link rel="stylesheet" href="css/animate.css" />
+     <!-- my site css -->
+      <link rel="stylesheet" href="./css/mystyle.css">
+   </head>
+   <body id="default_theme" class="home_page1">
+      <!-- header -->
+      <header class="header header_style1" style="height:170px;">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-9 col-lg-10">
+                  <div class="logo"><a href="MyWeb.html">
+                     <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gym-fitness-center-video-logo-social-media-design-template-f9566537b0445b719d2c9ae5b4264d3c_screen.jpg?ts=1589533347"
+                      style="width: 210px; height: 145px;
+                      position: relative; top: 0; object-fit: cover;"></a></div>
+                  <div class="main_menu float-right">
+                     <div class="menu"><br>
+                        <ul class="clearfix">
+                           <li><a href="MyWeb.html">Home</a></li>
+                           <li><a href="about.html">About</a></li>
+                           <li><a href="run.html">Run!</a></li>
+                           <li><a href="review.html">Reviews</a></li>
+                           <li><a href="pricing.html">Payment</a></li>
+                          <li><a href="discount.html">Statistics and Discounts</a></li>
+                           <li><a href="info.html" style="font-weight: 800; color:sienna;">My Account</a></li>
+                           <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-lg-2"><br>
+                  <div class="right_bt"><a class="bt_main" onclick="go();" href="index.html">Log Out</a> </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <section id="banner_parallax" class="inner_page_banner slide_banner1">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="full">
+                     <div class="slide_cont">
+                        <h2>Info</h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end header -->
+      <!-- section -->
+      <table border="2px">
+         <thead>
+         <tr>
+            <td>Name</td>
+            <td>Details</td>
+            <td>Change If You Want</td>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>User Name</td>
+            <td id="n1">Details</td>
+            <td><a href="#" class="button">Change</a></td>
+         </tr>
+         <tr>
+            <td>Special Id</td>
+            <td id="n2">Details</td>
+            <td>
+               You Can Log In With This Id
+            </td>
+         </tr>
+         <tr>
+            <td>Age</td>
+            <td id="n3">Details</td>
+            <td><a href="#" class="button">Change</a></td>
+         </tr>
+         <tr>
+            <td>Email</td>
+            <td id="n4">Details</td>
+            <td><a href="#" class="button">Change</a></td>
+         </tr>
+         <tr>
+            <td>Password</td>
+            <td id="n5">Details</td>
+            <td><a href="ChangePass.html" target="_blank" class="button">Change</a></td>
+         </tr>
+         <tr>
+            <td>Gender</td>
+            <td id="n6">Details</td>
+            <td>-</td>
+         </tr>
+         <tr>
+            <td>Created Date</td>
+            <td id="n7">Details</td>
+            <td>-</td>
+         </tr>
+      </tbody>
+         
+      </table>
+      <div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+         <strong>Danger!</strong> Make sure that if you click on the button below, Your account will be deleted and will not exist anymore.
+       </div><br>
+      <a onclick="todo();" href="index.html" class="button1">Delete My Account</a>
+      <br><br>
+         <div class="footer_bottom">
+            <p>Dessigned and developed by <strong>Zaid Sh</strong></p>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <!--=========== js section ===========-->
+      <!-- jQuery (necessary for Bootstrap's JavaScript) -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/wow.js"></script>
+      <!-- custom js -->
+      <script src="js/custom.js"></script>
+      <!-- google map js -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+      <!-- end google map js -->
+      <script>
+      var c = window.localStorage.getItem("myBat");
+      if( c !== "true" ){
+      	window.location.replace('index.html');
+      }
+         function go(){
+      window.localStorage.clear();
+      window.localStorage.setItem('myBat', null);
+      window.location.replace('index.html');
+   }
+   function GetUser(){
+	var id = localStorage.getItem("myCat");
+	var check_res;
+    var query = new Object();
+    $.ajax({ 
+        async:false,
+        url:"/admin/info/id?id="+id,
+        data:query,
+        type: "POST",
+        success: function(result){
+            check_res=result;
+        },error:function(){}
+    });
+    return check_res;
+}
+var part = GetUser().split("--");
+var x = 0;
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+document.getElementById('n'+(++x)).innerHTML = part[x-1];
+
+function getId(){
+	var check_res;
+    var query = new Object();
+    var x = part[3];
+    $.ajax({ 
+        async:false,
+        url:"/getide/em?em="+x,
+        data:query,
+        type: "POST",
+        dataType: "json",
+        success: function(result){
+            check_res=result;
+        },error:function(){}
+    });
+    return check_res;  
+}
+ function removeUser(){
+          var x = getId();
+          $.ajax({
+                 url: "admin/deleteUser/id?id="+x,
+                 method:'DELETE',
+                 dataType:'json',
+                 success:function(data){
+                     alert("failed !");
+             },error: function(jqXHR,testStatus,errorThrown){
+                 alert("Deleted Successfully.");
+             }
+          });
+ }
+ function todo(){
+    removeUser();
+    go();
+ }
+      
+         </script>
+   </body>
+</html>

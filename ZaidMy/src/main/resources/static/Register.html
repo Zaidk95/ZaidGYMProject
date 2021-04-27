@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./css/style1.css">
+</head>
+<body>
+    
+        <div class="container">
+          <div class="left">
+            <div class="login">Sign UP Here</div>
+            <div id="g1"><b></b></div>
+          </div>
+          <div class="right">
+            <label class="field field_v2" style=" font-weight: 700;-webkit-text-fill-color : chartreuse;">
+              <input class="field__input" placeholder="Your User Name" id="f1" style=" font-weight: 700;-webkit-text-fill-color : chartreuse;">
+              <span class="field__label-wrap">
+                <span class="field__label">User Name</span>
+              </span>
+            </label> 
+            <label class="field field_v2" style=" font-weight: 700;-webkit-text-fill-color :darkseagreen; margin-left: 105px;">
+              <input class="field__input" placeholder="Your Age" id="f2" style=" font-weight: 700;-webkit-text-fill-color :darkseagreen;" type="number" min="5" max="100">
+              <span class="field__label-wrap">
+                <span class="field__label">Age</span>
+              </span>
+            </label> 
+            <label class="field field_v2" style=" font-weight: 700;">
+              <input class="field__input" placeholder="Your E-mail" id="f3" style=" font-weight: 700;">
+              <span class="field__label-wrap">
+                <span class="field__label">E-mail</span>
+              </span>
+            </label> 
+            <label class="field field_v2" style=" font-weight: 700;-webkit-text-fill-color:rgb(15, 187, 240)">
+              <input class="field__input" placeholder="Enter Password" id="f4" type="password" style=" font-weight: 700;-webkit-text-fill-color:rgb(15, 187, 240)">
+              <span class="field__label-wrap">
+                <span class="field__label">Password</span>
+
+              </span>
+            </label> 
+            <div class="n"> 
+            <span style="color:aqua; margin-left: 5px;"><strong>Show Password</strong></span><input type="checkbox" onclick="myFunction()">   
+
+            <div class="hh"><progress max="100" value="0" id="meter"></progress></div>
+          </div>
+            <label class="field field_v2">
+              <input class="field__input" placeholder="Enter Password Again" id="f5" type="password" style=" font-weight: 700;-webkit-text-fill-color:rgb(182, 107, 178)">
+              <span class="field__label-wrap" style="-webkit-text-fill-color:rgb(182, 107, 178); font-weight: 700;">
+                <span class="field__label">Re-type Password</span>
+              </span>
+            </label> 
+				  <input type="radio" name="r1" id="rad1"><label for="rad1" class="trr">Male</label><br/>
+				  <input type="radio" name="r1" id="rad2"><label for="rad2" class="trr">Female</label>
+
+            <button class="glow-on-hover" type="submit" onclick="todo();">Sign Up</button>
+          </div>
+        </div>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function myFunction() {
+  var x = document.getElementById("f4");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+var code = document.getElementById("f4");
+
+var strengthbar = document.getElementById("meter");
+var display = document.getElementsByClassName("textbox")[0];
+
+code.addEventListener("keyup", function() {
+  checkpassword(code.value);
+});
+
+
+function checkpassword(password) {
+  var strength = 0;
+  if (password.match(/[a-z]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[A-Z]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[0-9]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[$@#&!]+/)) {
+    strength += 1;
+
+  }
+
+  if (password.length < 6) {
+	  document.getElementById("f6").innerHTML = "minimum number of characters is 6";
+  }
+
+  if (password.length > 12) {
+	  document.getElementById("f6").innerHTML = "maximum number of characters is 12";
+  }
+
+  switch (strength) {
+    case 0:
+      strengthbar.value = 0;
+      break;
+
+    case 1:
+      strengthbar.value = 25;
+      break;
+
+    case 2:
+      strengthbar.value = 50;
+      break;
+
+    case 3:
+      strengthbar.value = 75;
+      break;
+
+    case 4:
+      strengthbar.value = 100;
+      break;
+  }
+}
+</script>
+<script type="text/javascript">
+function todo(){
+	var n = false; 
+	if( document.getElementById('f1').value.length >= 4 &&
+		document.getElementById('f3').value.length >= 4 &&
+		document.getElementById('f4').value.length >= 4){
+		n = true;
+	}
+	var nn = document.getElementById('f2').value;
+	var r = false;
+	var a = document.getElementById('f4').value;
+	var b = document.getElementById('f5').value;
+	if(document.getElementById('f4').value.length > 6 && document.getElementById('f4').value.length < 13){
+		r = true;
+	}
+	if (user_Exist() === false && Check_Email() === true && Check_Exist() === false && a === b && n === true && r === true && pass() === true && radio() !== "nun"){
+		postD(this);	
+	}
+	else {
+		if(user_Exist() === true){
+			document.getElementById('g1').innerHTML ="This User Name Already Exists , Try Another one !";
+		}
+		else if(Check_Email() === false){
+			document.getElementById('g1').innerHTML = "Wrong Email Adress , Try Another one !";
+		}
+		else if(Check_Exist() === true){
+			document.getElementById('g1').innerHTML ="This Email Already Exists , Try Another one !";
+		}
+		else if(r === false){
+			document.getElementById('g1').innerHTML ="Password Must Be Between 7 - 12 Characters";
+		}
+		else if(pass() === false){
+			document.getElementById('g1').innerHTML ="The Password Is Not Strong Enough!";
+		}
+		else if(a !== b){
+			document.getElementById('g1').innerHTML = "Try to confirm password correctly!";
+		}
+		else if(radio() === "nun"){
+			document.getElementById('g1').innerHTML = "Please Choose A Gender!";
+		}
+		else {
+			document.getElementById('g1').innerHTML = "Short One Of inputs!" ;
+		}
+	}
+}
+</script>
+<script>
+$("[type='number']").keypress(function (evt) {
+    evt.preventDefault();
+});
+function postD(val){
+         var model = {
+	"username" : document.getElementById('f1').value,
+	"age" : document.getElementById('f2').value,
+    "email" : document.getElementById('f3').value,
+    "password" : document.getElementById('f4').value,
+	"gender" : radio(),
+	"date" : "5"
+	};
+	console.log("post data:"+model);
+	var yt = document.getElementById("f3").value;
+    	    $.ajax({ 
+    	    	type:"POST",
+    			url : "/add",
+    			ContentType:"application/json ;charset=UTF-8",
+    			crossOrigin:true,
+    			dataType:"json",
+    			headers: {
+    				'Accept': 'application/json',
+    				'Content-Type': 'application/json'
+    				},
+    			data:this.JSON.stringify(model),
+    			success:function(data){
+    				window.location.replace('login.html');
+    			}
+    			,error:function(){alert("Error");}
+    	    });  
+		}
+     </script>
+   <script>
+     function Check_Email(){
+    	    var check_res;
+    	    var query = new Object();
+    	    $.ajax({ 
+    	        async:false,
+    	        url: "/admin/ch/email?email="+(document.getElementById("f3").value),
+    	        data:query,
+    	        type: "POST",
+    	        dataType: "json",
+    	        success: function(result){
+    	            check_res=result;
+    	        },error:function(){}
+    	    });
+    	    return check_res;    
+    	}
+     function radio(){
+		 if(document.getElementById('rad1').checked === true){
+			 return "Male";
+		 }
+		 else if(document.getElementById('rad2').checked === true){
+			 return "Female";
+		 }
+		 return "nun";
+	 }
+     function pass(){
+ 	    var check_res;
+ 	    var query = new Object();
+ 	    $.ajax({ 
+ 	        async:false,
+ 	        url: "/pass/ps?ps="+(document.getElementById("f4").value),
+ 	        data:query,
+ 	        type: "POST",
+ 	        dataType: "json",
+ 	        success: function(result){
+ 	            check_res=result;
+ 	        },error:function(){}
+ 	    });
+ 	    return check_res;    
+ 	}
+  
+     function Check_Exist(){
+ 	    var check_res;
+ 	    var query = new Object();
+ 	    $.ajax({ 
+ 	        async:false,
+ 	        url: "/admin/va/email?email="+(document.getElementById("f3").value),
+ 	        data:query,
+ 	        type: "POST",
+ 	        dataType: "json",
+ 	        success: function(result){
+ 	            check_res=result;
+ 	        },error:function(){}
+ 	    });
+ 	    return check_res;    
+ 	}
+     
+     function user_Exist(){
+  	    var check_res;
+  	    var query = new Object();
+  	    $.ajax({ 
+  	        async:false,
+  	        url: "/admin/na/name?name="+(document.getElementById("f1").value),
+  	        data:query,
+  	        type: "POST",
+  	        dataType: "json",
+  	        success: function(result){
+  	            check_res=result;
+  	        },error:function(){}
+  	    });
+  	    return check_res;    
+  	}
+</script>
+</body>
+</html>

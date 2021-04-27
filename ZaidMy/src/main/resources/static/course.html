@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Course main</title>
+ 
+    <style>
+    h1 {
+    color : chocolate; 
+    font-size: 65px;
+    font-family: Cursive;
+    }
+    p {
+    color : cadetblue; 
+    font-size: 40px;
+    font-family: Cursive;
+    }
+    </style>
+</head>
+<body>
+
+<h1>Hello Welcome Sir</h1>
+<button onclick="go();">LogOut</button>
+<input type="text" id="a1">
+
+<button onclick="pass(this);" >Change</button>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function go(){
+	window.localStorage.clear();
+	window.localStorage.setItem('myBat', null);
+	window.location.replace('index.html');
+}
+function GetUser(){
+	//var val = window.location.href;
+    //var arr = val.split("id=");
+	//var id = arr[1];
+	var id = localStorage.getItem("myCat");
+	var check_res;
+    var query = new Object();
+    $.ajax({ 
+        async:false,
+        url:"/admin/gg/id?id="+id,
+        data:query,
+        type: "POST",
+        success: function(result){
+            check_res=result;
+        },error:function(){}
+    });
+    return check_res;
+}
+
+function pass(val){
+  var a = localStorage.getItem("myCat");
+  var b = document.getElementById("a1").value; 
+	    $.ajax({ 
+	    	type:"PUT",
+			url : "/chpass/"+a+"/"+b,
+			crossOrigin:true,
+			dataType:"json",
+			success:function(data){
+				alert("done");
+			}
+			,error:function(){alert("Error");}
+	    });  
+	}
+
+var vv = GetUser();
+var part = vv.split("/");
+for (var i=0 ; i < part.length ; i++){
+	document.write(`<p><b>${part[i]}</b></p>`);
+}
+
+
+</script>
+</body>
+</html>

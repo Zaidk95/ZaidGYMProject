@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changed</title>
+    <style>
+        .div{
+		  font-size: 2.7rem;
+	    text-align: center;
+        height: 540px;
+	    color: #fcedd8;
+	    background: #d52e3f;
+	   	font-family: 'Niconne', cursive;
+	    font-weight: 700;
+	    border-radius: 7px;
+      text-shadow: 5px 5px 0px #eb452b, 
+                  10px 10px 0px #efa032, 
+                  15px 15px 0px #46b59b, 
+                  20px 20px 0px #017e7f, 
+                  25px 25px 0px #052939;            
+}
+p{
+padding: 30px;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:darksalmon;
+    font-size: 50px;
+    position: fixed;
+    top: 70%;
+    left:33%;
+    border-radius: 5%;
+}
+    </style>
+</head>
+<body>
+    <div class="div"><br>
+    <p>
+        Your <span class="ch"></span> Has Been Changed Successfully  !</p>
+        <p>
+            The New <span class="ch"></span> Is : <span id="res"></span>  .
+        </p>
+    </div>
+    <a href="info.html">Return To My Account</a>
+</body>
+<script>
+    var x = window.localStorage.getItem("myEl");
+    document.getElementsByClassName("ch").innerHTML = x[0];
+    document.getElementById("res").innerHTML = x[1];
+</script>
+</html>

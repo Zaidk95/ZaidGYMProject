@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Table</title>
+</head>
+<body>
+ <table class="table" style="border: 2px">
+        <thead>
+        	<tr>
+        	<td>Password</td>
+        	<td>Email</td> 
+        	<td>UserName</td>
+            <td>Age</td>
+        	<td>Special Id</td>
+        	<td>Id</td>
+        	<td>Fist Name </td>
+        	<td>Last Name </td>
+            <td><button type="submit" onclick="removeAll();">Delete All</button></td>
+        	</tr>
+        	
+        	</thead>
+        	
+        </table>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function bbgg(){
+	var check_res;
+    var query = new Object();
+    var x = localStorage.getItem("myCat");
+    $.ajax({ 
+        async:false,
+        url:"/getid/em?em="+x,
+        data:query,
+        type: "POST",
+        dataType: "json",
+        success: function(result){
+            check_res=result;
+        },error:function(){}
+    });
+    return check_res;  
+}
+var gg = bbgg();
+var c = window.localStorage.getItem("myBat");
+window.localStorage.setItem("myCat", gg);
+if( c !== "null" ){
+	window.location.replace('course.html');
+}
+	$(document).ready(function(){
+	$.ajax(
+			{
+				type:"get",
+				url : "admin/getAll",
+				
+				ContentType:"application/json ;charset=UTF-8",
+				
+				crossOrigin:true,
+				dataType:"json",
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+					},
+				
+				
+				success:function(result)
+				{
+					console.log(result)
+					var table = $(".table")
+					for(i=0;i<result.length;i++)
+						{
+                            
+		table.append(`<tr><td>
+				${result[i]["password"]} </td>
+				<td> ${result[i]["email"]} </td>
+				<td> ${result[i]["username"]} </td>
+				<td> ${result[i]["age"]} </td> <td>
+				${result[i]["special_id"]} </td> <td>
+				${result[i]["id"]} </td>
+				<td>
+				<button onclick='rem('+result[i]["id"]+');'>Delete</button></td></tr>`
+			
+							);
+		
+							$('message').html(table);
+						}
+				
+				},error:function(jqXHR,testStatus,errorThrown)
+				{
+					alert("error");
+				}
+			});
+	});
+	
+</script>
+  
+<script>
+    function rem(id){
+	    var a = Number(id);
+	    $.ajax({ 
+	        url: '/admin/deleteUser/id?id='+a,
+	        type: "DELETE",
+	        success: function(result){alert(a+" Deleted Successfully");}
+	        ,error:function(){alert(`err`);}
+	    });   
+	}
+</script>
+     
+
+</body>
+</html>
